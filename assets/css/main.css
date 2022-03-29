@@ -1651,8 +1651,8 @@ input, select, textarea {
 		.image.centered {
 			display: block;
 			margin: 0 0 2em 0;
+			
 		}
-
 			.image.centered img {
 				margin: 0 auto;
 				width: auto;
@@ -1924,17 +1924,30 @@ input, select, textarea {
 			.box.style1 h3 {
 				margin-bottom: 0.5em;
 			}
-
-		.box.style2 h3 {
-			margin-bottom: 0.25em;
+		
+		.box.style2 {
+			height: 450px;
 		}
 
-		.box.style2 .image {
+		.box.style2 h3 {
+			margin-bottom: 0em;
+		}
+
+		.box.style3{
+			display: flex;
+			justify-content: center;
+			background: #fff;
+			box-shadow: none;
+			padding: none;
+
+		}
+		.box.style3 .image {
 			position: relative;
 			left: 2em;
 			top: 2em;
-			margin: -4em 0 4em -4em;
+			margin: -4em 0 0 -4em;
 			width: auto;
+			;
 		}
 
 /* Icons */
