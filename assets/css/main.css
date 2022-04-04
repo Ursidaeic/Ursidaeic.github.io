@@ -1913,7 +1913,7 @@ input, select, textarea {
 	.box {
 		background: #fff;
 		box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
-		text-align: center;
+		text-align:	center;
 		padding: 2em;
 	}
 
@@ -1926,30 +1926,44 @@ input, select, textarea {
 			}
 		
 		.box.style2 {
-			height: 450px;
+			height: 500px;
+			display: flex;
+			flex-direction: column;
+			position: relative;
 		}
 
 		.box.style2 h3 {
 			margin-bottom: 0em;
 		}
 
-		.box.style3{
+
+		.box.style3 {
 			display: flex;
-			justify-content: center;
-			background: #fff;
+			background: white;
 			box-shadow: none;
-			padding: none;
+			padding: 0px;
+			margin-bottom: 0.25em;
+			height: 50%;
 
 		}
 		.box.style3 .image {
-			position: relative;
+			width: 100%;
+			/* position: relative;
 			left: 2em;
 			top: 2em;
 			margin: -4em 0 0 -4em;
-			width: auto;
-			;
+			width: auto; */
 		}
 
+		.box.style4 {
+			width: 90%;
+			padding: 0;
+			border: 0;
+			box-shadow: none;
+			position: absolute;
+			bottom:1em;
+			left: 1em;
+		}
 /* Icons */
 
 	.icon {
