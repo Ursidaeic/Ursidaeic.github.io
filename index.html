@@ -18,7 +18,8 @@
 				<ul class="container">
 					<li><a href="#top">Top</a></li>
 					<li><a href="#work">Project Overview</a></li>
-					<li><a href="#portfolio">Portfolio</a></li>
+					<li><a href="#portfolio">Scripts and Datasets</a></li>
+					<li><a href="#casestudies">Case Studies</a></li>
 					<li><a href="#contact">Contact</a></li>
 				</ul>
 			</nav>
@@ -162,28 +163,59 @@
 						</div>
 					</div>
 					<footer>
-						<a href="#contact" class="button large scrolly">Get in touch with me</a>
+						<a href="#casestudies" class="button large scrolly">Case Studies</a>
 					</footer>
 				</div>
 			</article>
 		<!-- Case studies -->
-		<!-- <article id="work" class="wrapper style2">
+		<article id="casestudies" class="wrapper style2">
 			<div class="container">
 				<header>
 					<h2>Case Studies</h2>
 					<div class="carousel">
-						<div class="carousel__item">Content 1</div>
-						<div class="carousel__item carousel__item--selected">Content 2</div>
-						<div class="carousel__item">Content 3</div>
-						<div class="carousel__nav">
-							<span class="carousel__button"></span>
-							<span class="carousel__button carousel__button--selected"></span>
-							<span class="carousel__button"></span>
+						<div class="carousel__item">
+							<h3>Case Study 1: Exploring the reception of BTS and BLACKPINK <br> through the lens of fandom</h3>
+							<p>
+								This case study examined the work and reception of certifiably the two most popular K-pop groups in the English-speaking charts: BLACKPINK and BTS.
+								After having filtered the YouTube comments for those that express an opinion using the <a href="https://github.com/Ursidaeic/ForeignLang-Music/tree/main/opinion_miner">opinion miner</a>, I collected keyword frequency data so as to perform some manual topic-modelling. 
+								The conclusion I was able to draw from this was that commenters on BTS songs frequently used terms related to the fandom of the band, whereas BLACKPINK commenters overwhelmingly discussed the singers.
+								Elving-Hwang asserts that K-pop production companies often attempt to foster parasocial relationships between singers and their fans and completed a study that found that Korean fans had a tendency to fixate on a particular 'idol' (K-pop singer) (2018).
+								Based off this observation and the fact that the BLACKPINK singers' names were occurring with such great frequency within the corpus, I hypothesised that this same effect was occurring amongst English-speaking audiences.
+								Whilst I could have set out to prove this hypothesis with computational analysis such as that performed in case study 2, I elected to instead do so with a musicological approach.
+								The relative frequency of singer-tokens varied on different songs, and therefore I proposed that if I were not able to find any musicological reason why fans may decide to mention one singer over another in the comments section of a given video then that would point towards the expression of fan identity being the driving force behind the phenomenon.
+								<br>
+								<br>
+								The first musicological analysis I carried out was statistical analysis of the sung-time of each singer and whether that had an effect on how likely they were to be mentioned over another band member in the comment section
+								Due to time constraints, I narrowed my focus to the 5 most popular songs for BTS and BLACKPINK based on chart position and/or English language engagement on YouTube as this would necessarily prove us with more data from which to draw conclusions.
+								Figure 1.1 displays the sung-time and singer-token frequencies for these 10 songs comparatively as a composite bar chart
+								<br>
+								<br>
+								<div style="text-align: center;">
+									<img src="images/vocals_times.png" alt="Compostite bar chart displaying the sung-time and singer-token frequencies for 5 songs comparatively" style="text-align: center;"/>
+									<figcaption>Figure 1.1 - Compostite bar chart displaying the sung-time and singer-token frequencies for 5 songs comparatively.</figcaption>
+								</div>
+								<br> 
+								<br>
+								Two conclusions were draw from this data through a number of statistical analyses: <br>
+								1) Although initial uniformity between the datasets for BLACKPINK imply correlation, analyses of specific singers demonstrate that this is incidental. <br>
+								2) Furthermore, comparison with the data pertaining to BTS highlights that it is possible to predict distributions of singer-name tokens on the basis of how much time in the song that singer occupies vocally; for BTS songs, there is a correlation between sung-time and singer-token frequencies, but not for BLACKPINK. <br><br>
+								The next analysis was a 
+
+							
+							</p> 
+							<p>
+								<sup>1</sup> Elfving-Hwang, J. (2018) ‘K-pop idols, artificial beauty and affective fan relationships in South Korea’, in Routledge handbook of celebrity studies. Routledge, pp. 190–201
+							</p>
 						</div>
+						<div class="carousel__item">Content 2</div>
+						<div class="carousel__item">Content 3</div>
 					</div>
 				</header>
+				<footer>
+					<a href="#contact" class="button large scrolly">Get in touch</a>
+				</footer>
 			</div>
-		</article> -->
+		</article>
 		<!-- Contact -->
 			<article id="contact" class="wrapper style4">
 				<div class="container medium">
@@ -193,7 +225,7 @@
 					</header>
 					<div class="row">
 						<div class="col-12">
-							<form method="post" action="#">
+							<form action="https://formsubmit.co/charlie.c.armstead@gmail.com" method="post" >
 								<div class="row">
 									<div class="col-6 col-12-small">
 										<input type="text" name="name" id="name" placeholder="Name" />
