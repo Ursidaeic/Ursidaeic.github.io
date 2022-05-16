@@ -36,16 +36,22 @@
 document.querySelectorAll(".carousel").forEach((carousel) => {
 	const items = carousel.querySelectorAll(".carousel__item");
 	const buttonsHtml = Array.from(items, () => {
-		return `<span class="carousel__button"></span>`;
+		return `<a href="#casestudies"><span class="carousel__button"></span></a>`;
 	});
-
 	carousel.insertAdjacentHTML(
-	"beforeend", 
+	"afterbegin", 
 	`
 		<div class="carousel__nav">
 			${buttonsHtml.join("")}
 		</div>
 	`);
+	carousel.insertAdjacentHTML(
+		"beforeend", 
+		`
+			<div class="carousel__nav">
+				${buttonsHtml.join("")}
+			</div>
+		`);
 
 	
 	const buttons = carousel.querySelectorAll(".carousel__button");
