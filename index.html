@@ -174,12 +174,12 @@
 					<h2>Case Studies</h2>
 					<div class="carousel">
 						<div class="carousel__item">
-							<!-- <h3>Case Study 1: Exploring the reception of BTS and BLACKPINK through the lens of fandom</h3>
+							<h3>Case Study 1: Exploring the reception of BTS and BLACKPINK through the lens of fandom</h3>
 							<p>
 								This case study examined the work and reception of certifiably the two most popular K-pop groups in the English-speaking charts: BLACKPINK and BTS.
 								After having filtered the YouTube comments for those that express an opinion using the <a href="https://github.com/Ursidaeic/ForeignLang-Music/tree/main/opinion_miner">opinion miner</a>, I collected keyword frequency data so as to perform some manual topic-modelling. 
 								The conclusion I was able to draw from this was that commenters on BTS songs frequently used terms related to the fandom of the band, whereas BLACKPINK commenters overwhelmingly discussed the singers.
-								Elving-Hwang asserts that K-pop production companies often attempt to foster parasocial relationships between singers and their fans and completed a study that found that Korean fans had a tendency to fixate on a particular 'idol' (K-pop singer) (2018).
+								Elving-Hwang asserts that K-pop production companies often attempt to foster parasocial relationships between singers and their fans and completed a study that found that Korean fans had a tendency to fixate on a particular 'idol' (K-pop singer)<sup>1</sup>.
 								Based off this observation and the fact that the BLACKPINK singers' names were occurring with such great frequency within the corpus, I hypothesised that this same effect was occurring amongst English-speaking audiences.
 								Whilst I could have set out to prove this hypothesis with computational analysis such as that performed in case study 2, I elected to instead do so with a musicological approach.
 								The relative frequency of singer-tokens varied on different songs, and therefore I proposed that if I were not able to find any musicological reason why fans may decide to mention one singer over another in the comments section of a given video then that would point towards the expression of fan identity being the driving force behind the phenomenon.
@@ -257,7 +257,7 @@
 								
 
 							
-							</p>  -->
+							</p> 
 							<p>
 								<sup>1</sup> Elfving-Hwang, J. (2018) ‘K-pop idols, artificial beauty and affective fan relationships in South Korea’, in Routledge handbook of celebrity studies. Routledge, pp. 190–201
 								<br><sup>2</sup> Cannam, C., Landone, C. and Sandler, M. (2010) ‘Sonic visualiser: An open source application for viewing, analysing, and annotating music audio files’, in Proceedings of the 18th ACM international conference on Multimedia, pp. 1467–1468.
@@ -266,8 +266,82 @@
 						<div class="carousel__item">
 							<h3> Case study 2: Exploring the attitudes towards language choice in reggaeton songs.</h3>
 							<p>
+								In 2006, Wayne Marshall <sup>1</sup> remarked on a new wave of Latin music sweeping the United States.
+								 He noted that, whilst in previous years use of the Spanish language on the radio had been relegated to hits such as José Feliciano’s ‘Feliz Navidad’ (1970) and Ricky Martin’s ‘La Vida Loca’ (1999) (both of which contain snippets of Spanish), at the time of writing, “15 to 30 minutes blocks of Spanish-language pop” had begun to appear on hip-hop stations. 
+								The name of this new genre of music was reggaeton.
+								The most famous reggaeton song of all time is undoubtedly ‘Despacito’.
+								Arbona-Ruiz credits this song as demonstrating to the world that Latin artists were starting to have a profound influence over the American music industry<sup>2</sup>, an influence that is reflected in the data collected throughout this project.
+								<img>
+								Figure 4.1 offers a visual representation of the number of reggaeton songs charting each year, starting from 2007. It is clear from the data presented here that 2017, the year in which ‘Despacito’ released, was a turning point for the reception of reggaeton songs.
+								Thus, any project on foreign language music in 2021 would be necessarily incomplete without a focus on the what Acevedocalls the “Latin renaissance” <sup>3</sup> and the language attitudes thereof.
+								Limitations of the project at the time of performing this case study bar the use of advanced computational techniques in order to illuminate the topics discussed by commenters.
+								However, through the use of lower-resolution techniques such as keyword collocations, it will be possible to uncover the opinions of commenters on a specific, manually selected topic – language use in reggaeton songs.
+								<br><br>
+								In order to elucidate particular language attitudes through collocations, the first step was to decide the keywords around which term frequencies were to be collected.  
+								 “Spanish”, “English”, and “language” were the three necessary choices for keywords, however “understand” and “speak” were also included. 
+								This is because manual surveying of the corpus revealed that listeners often express opinions about the song with an introductory phrase such as “I don’t understand” or “I don’t speak”, for example “i dont understand it but i love it😍❤”. 
+								Although not as explicit of a language attitude as a comment such as “Wow i love spanish now thank u for getting me into spanish”, comments such as the former can still be considered an opinion relating to language use.
+								
 
-							</p>
+								The script used for text processing (which can be found at <a href="https://github.com/Ursidaeic/ForeignLang-Music/blob/main/utils/PRSR.py">here</a> was broadly the same as that applied in chapters 2 and 3.
+								The exception was that the following three steps were added: 1) tokens containing the name of an artist were transformed into “artist_name, 2) the collection of ngrams (a sequence of n tokens combined into one), and 3) the combining of negatives and the subsequent word into one token, eg. “not understand” becomes “not_understand”.
+								At the end of the pipeline, a frequency table of the 100 most common ngrams and single-word tokens was generated.
+								A total of 2031 unique tokens appeared across all eighty-nine frequency tables.
+								These figures alone inform us that there is a large degree of similarity in opinions commenters express towards language use in the selected songs; only around one in five tokens in a given frequency table are unique to that table.
+								In spite of this general uniformity, there still lay value in attempting to elucidate which groupings, if any, existed within this corpus of frequency tokens.
+								In order to discern which frequency tables were most similar in their contents, and as a result group them, the method of cosine similarity was employed.
+								Figure 2.2 displays the groupings elucidated through this method.
+								<img>
+								Two conclusions are immediately clear from figure 2.4: a) there is further evidence that all of the frequency tables display a great deal of similarity and b), there are three groups with differing semantic topics broached in the frequency tables.
+								Figure 2.5 displays colour-coded word clouds formed from the tokens of the frequency tables in figure 2.4’s red, blue, and green groups.
+								<img>
+								With the clusters and respective word clouds established, the next step was to discover the relationship between other songs in the corpus and these groupings.
+								When the prevailing language attitudes of the groups were analysed and extracted, we could also relate songs in the wider corpus to these attitudes as we have already established what their relationship to the ‘parent’ cluster was.
+								To determine this relationship, an average cosine similarity between a given song and cluster was taken.
+								These relationships are visualised in figure 4.6 and it should be noted that the clusters are represented here by the colour-coded red, green, and blue nodes.
+								Due to the number and relative proximity of the nodes surrounding the blue group, I concluded that the language attitude(s) that users promote in the comment sections of these videos is the most common among reggaeton songs.
+								What will follow is a brief summary of the language attitudes found in the word clouds.
+								</p>
+								<h4>Green group</h4>
+								<p>
+								Although there is a passing similarity with the blue group, in order for the cosine similarity of the members of the green group to be dissimilar enough from the rest of the corpus to form a distinct cluster, there must be other, lower frequency tokens that appear at distinct frequencies.
+							 	The most notable of these is the token ‘shit’, which does not appear with great frequency in either of the other clusters.	
+								Terraschke contends that this expletive can have varied and sometimes contradictory usages <sup>4</sup>.
+								Through manual surveying of the corpus, I discovered that, as a general rule, if a commenter is to use ‘shit’ in a positive manner, they will do so with the use of an adversative subordinating or coordinating conjunction, e.g. “I can’t understand any of this shit but I like it”.
+								By compiling a list of adversative conjunctions (‘but’, ‘although’, ‘nevertheless’, ‘however’, and ‘even though’), I identified that 47.2% of the total usages of the expletive were negative in sentiment. 
+								Other tokens that appear with a high frequency are “say” and “word”.
+								In the majority of cases (69.2%), these tokens appear in conjunction with the keywords “understand” and “speak” (at a ratio of approximately 9:1 respectively).
+								Thus, we can conclude that another common topic for members of the green group (and the children thereof) is their lack of comprehension of the lyrics.
+								By highlighting their lack of comprehension of the lyrics, these commenters are setting clear boundaries between themselves and the foreign language singer.	
+ 								If we draw from Brons’ theories on othering <sup>5</sup>, we can hypothesise that this is 	an example of the commenters placing themselves in the ‘in-group’ whilst the singer is in the ‘out-group’.				
+								Taking this in conjunction with the aforementioned common negative sentiment leads us to believe that, in this particular cluster, the process of othering is taking place when commenters express their attitudes towards language use.
+								</p>
+								<h4> Blue Group </h4>
+								<p>
+								The blue cluster is the most numerous in terms of core nodes and children nodes.
+								The two most frequent tokens expressed across all these corpora in conjunction with the language-related keywords are “love” and “song”. 
+								Furthermore, these two tokens appear as a bigram (‘love song’) and are some of the only tokens to do so across the entire set of results. 
+								There are other tokens with (potential) positive connotations that appear with fairly high frequency, e.g. “like”, “good”, and the emojis “🔥” and “😍”. 
+								Thus, it can be concluded that the overall reaction of listeners to the specific use of language is highly positive in these songs. 
+								Another very frequent token that commenters use are ones related to the artist(s) of the song which have been normalised to appear as “artist_name” at the end of the pipeline, implying that when a language attitude is expressed, it is usually in conjunction with the artist of the song.
+								</p>
+								<h4>Red group</h4>
+								<p>
+								Of the three clusters, the red group displays the most variation in its vocabulary.
+								With the exception of discussing the artists, there is no real prevailing semantic theme throughout the cluster in terms of what topic commenters tend to broach when displaying a language attitude.
+								If one examines the lower-frequency tokens, however, the semantic field that is expressed is positive and contains many of the same tokens as the blue group (“love”, “good”, and “like”). 
+								There are also adjectives such as “beautiful” and “sexy” that appear at about the same frequency, which is to be expected if the principal topic of discussion is the artists involved in the music.
+								It is not worth examining this in great detail so as to discern whether these tokens refer to the visual dimension of the music (as YouTube videos are principally an audio-visual medium) or the Spanish language as the tokens in question occur in such a relatively low frequency that drawing meaningful conclusions would be very challenging and would lack the ability to be generalised across the broader corpus. 
+								Furthermore, because cosine similarity is sensitive to the magnitude of the vectors it takes as variables (which in this case is the frequency of a given token), the lower frequency tokens contribute very little to the overall similarity scores between the two frequency lists. 
+								Thus, there is even less value in making generalisations based on these tokens. 
+								</p>
+										
+								<h4>Summary</h4>
+								To conclude, each word cloud represents a distinct grouping of ideas that commenters formulate when they discuss the use of language in the eighty-nine reggaeton songs. 
+								The green cloud is characterised by a more negative attitude towards the use of foreign language in the songs, whereas the blue cloud is an overwhelmingly positive response. 
+								The red cloud is a more disparate collection of frequency tables that are mainly linked as a result of placing the artists of the songs at the forefront when expressing a language attitude.
+
+
 						</div>
 						<div class="carousel__item">
 							Content 3

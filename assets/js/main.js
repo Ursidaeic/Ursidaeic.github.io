@@ -33,45 +33,96 @@
 
 })(jQuery);
 
+
+
 document.querySelectorAll(".carousel").forEach((carousel) => {
 	const items = carousel.querySelectorAll(".carousel__item");
 	const buttonsHtml = Array.from(items, () => {
-		return `<a href="#casestudies"><span class="carousel__button"></span></a>`;
+		return `<span class="carousel__button"></span>`;
 	});
 	carousel.insertAdjacentHTML(
 	"afterbegin", 
 	`
-		<div class="carousel__nav">
+		<div class="carousel__nav__top">
 			${buttonsHtml.join("")}
 		</div>
 	`);
 	carousel.insertAdjacentHTML(
 		"beforeend", 
 		`
-			<div class="carousel__nav">
+			<div class="carousel__nav__bottom">
 				${buttonsHtml.join("")}
 			</div>
 		`);
 
-	
 	const buttons = carousel.querySelectorAll(".carousel__button");
+	const topButtons = Array.from(buttons).slice(0, 3);
+	const bottomButtons = Array.from(buttons).slice(3);
 
-	buttons.forEach((button, i) => {
-		button.addEventListener("click", () => {
-			//unselect all the items
+	for (let i=0; i<3; i++) {
+		topButtons[i].addEventListener("click", () => {
 			items.forEach((item) => 
 				item.classList.remove("carousel__item--selected")
 			);
-			buttons.forEach((button) => 
+			topButtons.forEach((button) => 
 				button.classList.remove("carousel__button--selected")
 			);
-
+			bottomButtons.forEach((button) => 
+				button.classList.remove("carousel__button--selected")
+			);
+			topButtons[i].classList.add("carousel__button--selected");
+			bottomButtons[i].classList.add("carousel__button--selected");
 			items[i].classList.add("carousel__item--selected");
-			buttons[i].classList.add("carousel__button--selected");
+		
 		});
-	});
-	
-	items[0].classList.add("carousel__item--selected")
-	buttons[0].classList.add("carousel__button--selected")
-});
+		bottomButtons[i].addEventListener("click", () => {
+			items.forEach((item) => 
+				item.classList.remove("carousel__item--selected")
+			);
+			topButtons.forEach((button) => 
+				button.classList.remove("carousel__button--selected")
+			);
+			bottomButtons.forEach((button) => 
+				button.classList.remove("carousel__button--selected")
+			);
+			topButtons[i].classList.add("carousel__button--selected");
+			bottomButtons[i].classList.add("carousel__button--selected");
+			items[i].classList.add("carousel__item--selected");
+			var elmntToView = document.getElementById("casestudies");
+			elmntToView.scrollIntoView({behavior: "smooth"}); 
+		});
 
+	items[0].classList.add("carousel__item--selected")
+	topButtons[0].classList.add("carousel__button--selected")
+	bottomButtons[0].classList.add("carousel__button--selected")
+	};
+});
+	// topButtons.forEach((button, i) => {
+	// 	button.addEventListener("click", () => {
+	// 		//unselect all the items
+	// 		items.forEach((item) => 
+	// 			item.classList.remove("carousel__item--selected")
+	// 		);
+	// 		topButtons.forEach((button) => 
+	// 			button.classList.remove("carousel__button--selected")
+	// 		);
+	// 		items[i].classList.add("carousel__item--selected");
+	// 		topButtons[i].classList.add("carousel__button--selected");
+	// 		bottomButtons[i].classList.add("carousel__button--selected");
+	// 	});
+	// });
+	
+	// bottomButtons.forEach((button, i) => {
+	// 	button.addEventListener("click", () => {
+	// 		//unselect all the items
+	// 		items.forEach((item) => 
+	// 			item.classList.remove("carousel__item--selected")
+	// 		);
+	// 		bottomButtons.forEach((button) => 
+	// 			button.classList.remove("carousel__button--selected")
+	// 		);
+	// 		items[i].classList.add("carousel__item--selected");
+	// 		bottomButtons[i].classList.add("carousel__button--selected");
+	// 		topButtons[i].classList.add("carousel__button--selected");
+	// 	});
+	
